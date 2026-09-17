@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gabriella Victória</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -19,10 +21,15 @@ body{
 }
 
 body{
+
   min-height:100vh;
+
   overflow:hidden;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   background:
@@ -33,14 +40,20 @@ body{
       #050a12 100%
     );
 
-  font-family:Georgia,"Times New Roman",serif;
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
 }
 
-/* luz muito discreta no ambiente */
 body::after{
+
   content:"";
+
   position:fixed;
+
   inset:0;
+
   pointer-events:none;
 
   background:
@@ -51,33 +64,49 @@ body::after{
     );
 }
 
-/* palco */
+
+/* CENA */
+
 .cena{
+
   position:relative;
+
   width:320px;
   height:520px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 }
 
-/* sombra do envelope */
+
+/* SOMBRA */
+
 .sombra{
+
   position:absolute;
+
   width:245px;
   height:30px;
+
   left:37px;
   bottom:13px;
 
   border-radius:50%;
 
-  background:rgba(0,0,0,.72);
+  background:
+    rgba(0,0,0,.72);
+
   filter:blur(17px);
 }
 
-/* envelope completo */
+
+/* ENVELOPE */
+
 .envelope{
+
   position:relative;
 
   width:300px;
@@ -88,15 +117,18 @@ body::after{
   perspective:1200px;
 
   filter:
-    drop-shadow(0 25px 30px rgba(0,0,0,.55));
+    drop-shadow(
+      0 25px 30px rgba(0,0,0,.55)
+    );
 }
 
-/* ==================================================
-   CORPO
-   ================================================== */
+
+/* CORPO */
 
 .corpo{
+
   position:absolute;
+
   inset:0;
 
   overflow:hidden;
@@ -109,15 +141,18 @@ body::after{
       #081220 100%
     );
 
-  border:1px solid rgba(211,216,225,.72);
+  border:
+    1px solid rgba(211,216,225,.72);
 
   border-radius:3px;
 }
 
-/* textura extremamente sutil */
 .corpo::before{
+
   content:"";
+
   position:absolute;
+
   inset:0;
 
   opacity:.14;
@@ -132,21 +167,26 @@ body::after{
     );
 }
 
-/* moldura */
+
+/* MOLDURA */
+
 .moldura{
+
   position:absolute;
+
   inset:12px;
 
-  border:1px solid rgba(205,211,220,.25);
+  border:
+    1px solid rgba(205,211,220,.25);
 
   pointer-events:none;
 }
 
-/* ==================================================
-   DOBRAS LATERAIS
-   ================================================== */
+
+/* DOBRA ESQUERDA */
 
 .dobra-esquerda{
+
   position:absolute;
 
   left:0;
@@ -169,12 +209,17 @@ body::after{
       0 100%
     );
 
-  border-top:1px solid rgba(213,218,225,.34);
+  border-top:
+    1px solid rgba(213,218,225,.34);
 
   z-index:3;
 }
 
+
+/* DOBRA DIREITA */
+
 .dobra-direita{
+
   position:absolute;
 
   right:0;
@@ -197,13 +242,402 @@ body::after{
       100% 100%
     );
 
-  border-top:1px solid rgba(213,218,225,.34);
+  border-top:
+    1px solid rgba(213,218,225,.34);
 
   z-index:3;
 }
 
-/* ==================================================
-   DOBRA INFERIOR
-   ================================================== */
 
-.dobra-infer
+/* DOBRA INFERIOR */
+
+.dobra-inferior{
+
+  position:absolute;
+
+  left:0;
+  bottom:0;
+
+  width:300px;
+  height:225px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #14243b,
+      #091321
+    );
+
+  clip-path:
+    polygon(
+      0 100%,
+      50% 0,
+      100% 100%
+    );
+
+  border-top:
+    1px solid rgba(210,216,224,.30);
+
+  z-index:4;
+}
+
+
+/* ABA SUPERIOR */
+
+.aba{
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:300px;
+  height:235px;
+
+  background:
+    linear-gradient(
+      160deg,
+      #223550 0%,
+      #172841 48%,
+      #0a1425 100%
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 100%
+    );
+
+  border-top:
+    1px solid rgba(232,235,240,.82);
+
+  z-index:10;
+
+  transform-origin:50% 0%;
+
+  transition:
+    transform 1.35s cubic-bezier(.18,.78,.22,1),
+    opacity .7s ease;
+}
+
+.aba::after{
+
+  content:"";
+
+  position:absolute;
+
+  left:26px;
+  right:26px;
+  top:1px;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(247,248,250,.8),
+      transparent
+    );
+}
+
+
+/* LACRE */
+
+.lacre{
+
+  position:absolute;
+
+  left:150px;
+  top:225px;
+
+  width:104px;
+  height:104px;
+
+  transform:
+    translate(-50%,-50%);
+
+  z-index:30;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  background:
+    radial-gradient(
+      circle at 28% 20%,
+      #ffffff 0%,
+      #f0f1f3 17%,
+      #c9ccd1 37%,
+      #858a92 62%,
+      #5e636b 73%,
+      #dfe1e4 100%
+    );
+
+  border:
+    1px solid rgba(255,255,255,.95);
+
+  box-shadow:
+    0 13px 25px rgba(0,0,0,.62),
+    inset 0 2px 4px rgba(255,255,255,.95),
+    inset 0 -6px 10px rgba(0,0,0,.35);
+
+  transition:
+    transform .3s ease,
+    opacity .6s ease;
+}
+
+
+/* ANÉIS DO LACRE */
+
+.lacre::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:7px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(48,52,58,.7);
+}
+
+.lacre::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:12px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.5);
+}
+
+
+/* MONOGRAMA GV */
+
+.gv{
+
+  position:relative;
+
+  width:72px;
+  height:72px;
+
+  z-index:2;
+}
+
+.gv span{
+
+  position:absolute;
+
+  font-family:
+    "Times New Roman",
+    Georgia,
+    serif;
+
+  font-weight:bold;
+
+  font-size:56px;
+
+  line-height:1;
+
+  color:#292d33;
+
+  text-shadow:
+    0 1px 0 #ffffff,
+    0 -1px 0 rgba(0,0,0,.18);
+}
+
+.gv .g{
+
+  left:2px;
+  top:4px;
+}
+
+.gv .v{
+
+  left:27px;
+  top:9px;
+}
+
+
+/* EFEITO AO TOCAR */
+
+.lacre:hover{
+
+  transform:
+    translate(-50%,-50%)
+    scale(1.045);
+}
+
+.lacre:active{
+
+  transform:
+    translate(-50%,-50%)
+    scale(.94);
+}
+
+
+/* ENVELOPE ABERTO */
+
+.envelope.aberto .aba{
+
+  transform:
+    rotateX(-165deg);
+
+  opacity:.08;
+}
+
+.envelope.aberto .lacre{
+
+  opacity:0;
+
+  transform:
+    translate(-50%,-50%)
+    scale(.65);
+
+  pointer-events:none;
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media(max-width:350px){
+
+  .cena{
+
+    transform:scale(.88);
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="cena">
+
+
+  <div class="sombra"></div>
+
+
+  <div
+    class="envelope"
+    id="envelope"
+  >
+
+
+    <div class="corpo">
+
+
+      <div class="moldura"></div>
+
+
+      <div class="dobra-esquerda"></div>
+
+
+      <div class="dobra-direita"></div>
+
+
+      <div class="dobra-inferior"></div>
+
+
+    </div>
+
+
+    <div class="aba"></div>
+
+
+    <div
+      class="lacre"
+      id="lacre"
+      role="button"
+      tabindex="0"
+      aria-label="Abrir convite"
+    >
+
+
+      <div class="gv">
+
+        <span class="g">G</span>
+
+        <span class="v">V</span>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>
+
+
+<script>
+
+
+const envelope =
+  document.getElementById("envelope");
+
+
+const lacre =
+  document.getElementById("lacre");
+
+
+function abrirEnvelope(){
+
+  envelope.classList.add("aberto");
+
+}
+
+
+lacre.addEventListener(
+  "click",
+  abrirEnvelope
+);
+
+
+lacre.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Enter" ||
+      event.key === " "
+    ){
+
+      event.preventDefault();
+
+      abrirEnvelope();
+
+    }
+
+  }
+);
+
+
+</script>
+
+
+</body>
+
+</html>
