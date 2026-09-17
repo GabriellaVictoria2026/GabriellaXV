@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gabriella Victória</title>
+<title>Gabriella Victória — 15 anos</title>
 
 <style>
 
@@ -15,19 +15,8 @@
 }
 
 body {
-    width: 100%;
     min-height: 100vh;
     overflow: hidden;
-    background: #050914;
-    font-family: Georgia, serif;
-}
-
-/* CAPA */
-
-.capa {
-    position: fixed;
-    inset: 0;
-    z-index: 10;
 
     display: flex;
     align-items: center;
@@ -35,160 +24,609 @@ body {
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(35, 48, 78, 0.45),
-            transparent 55%
-        ),
-        linear-gradient(
-            135deg,
-            #030610,
-            #0b1428,
-            #03050c
+            ellipse at center,
+            #17233a 0%,
+            #0b1220 45%,
+            #03060d 100%
         );
 
-    perspective: 1800px;
-
-    transition:
-        transform 1.4s ease,
-        opacity 1.2s ease;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
-/* LOGO */
 
-.logo {
-    width: min(70vw, 330px);
+/* =====================================================
+   CENA
+===================================================== */
+
+.cena {
+    width: min(88vw, 390px);
+    aspect-ratio: 10 / 15;
+
+    perspective: 1600px;
+
+    position: relative;
+}
+
+
+/* =====================================================
+   SOMBRA DO ENVELOPE
+===================================================== */
+
+.sombra {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    bottom: 3%;
+
+    height: 12%;
+
+    background: rgba(0,0,0,.55);
+
+    filter: blur(22px);
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   CONVITE QUE FICA DENTRO
+===================================================== */
+
+.convite {
+    position: absolute;
+
+    width: 88%;
+    height: 88%;
+
+    left: 6%;
+    top: 7%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4f1eb,
+            #e9e5dd
+        );
+
+    border: 1px solid rgba(70,70,70,.35);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.35);
+
+    padding: 35px 25px;
+
+    color: #141a25;
+
+    transform:
+        translateY(5%);
+
+    transition:
+        transform 1.4s cubic-bezier(.2,.75,.2,1);
+
+    z-index: 1;
+}
+
+.convite h1 {
+    font-size: 30px;
+    font-weight: normal;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.convite p {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(0 25px 30px rgba(0,0,0,.45));
+}
+
+
+/* Corpo principal */
+
+.corpo {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(74,91,120,.18),
+            transparent 42%
+        ),
+
+        repeating-linear-gradient(
+            0deg,
+            rgba(255,255,255,.018) 0px,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+
+        linear-gradient(
+            145deg,
+            #111c31,
+            #080e1c 55%,
+            #0e1728
+        );
+
+    border: 1px solid rgba(171,176,187,.6);
+}
+
+
+/* =====================================================
+   BORDA INTERNA
+===================================================== */
+
+.borda {
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid rgba(180,185,195,.32);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ABA DO ENVELOPE
+===================================================== */
+
+.aba {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 48%;
+
+    z-index: 8;
+
+    transform-origin: top center;
+
+    transform-style: preserve-3d;
+
+    transition:
+        transform 1.35s cubic-bezier(.2,.75,.2,1);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+    );
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #17243c,
+            #0b1324
+        );
+
+    border-top: 1px solid rgba(185,190,200,.65);
+}
+
+
+/* linha da dobra */
+
+.aba::after {
+    content: "";
+
+    position: absolute;
+
+    left: 10%;
+    right: 10%;
+
+    top: 2px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(210,214,221,.6),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   DOBRAS LATERAIS
+===================================================== */
+
+.lado-esquerdo,
+.lado-direito {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+    height: 62%;
+
+    z-index: 4;
+
+    pointer-events: none;
+}
+
+.lado-esquerdo {
+
+    left: 0;
+
+    clip-path: polygon(
+        0 0,
+        50% 100%,
+        0 100%
+    );
+
+    background:
+        linear-gradient(
+            145deg,
+            #121e34,
+            #09101e
+        );
+}
+
+.lado-direito {
+
+    right: 0;
+
+    clip-path: polygon(
+        100% 0,
+        50% 100%,
+        100% 100%
+    );
+
+    background:
+        linear-gradient(
+            215deg,
+            #121e34,
+            #09101e
+        );
+}
+
+
+/* =====================================================
+   MONOGRAMA / LACRE
+===================================================== */
+
+.lacre {
+    position: absolute;
+
+    left: 50%;
+    top: 47%;
+
+    width: 112px;
+    height: 112px;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 15;
 
     cursor: pointer;
 
-    transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
-
-    filter:
-        drop-shadow(0 10px 20px rgba(0,0,0,0.6));
-}
-
-.logo:active {
-    transform: scale(0.95);
-}
-
-/* ABERTURA */
-
-.capa.aberta {
-    transform:
-        perspective(1800px)
-        rotateY(-100deg);
-
-    transform-origin: left center;
-
-    opacity: 0;
-}
-
-/* PARTE DE DENTRO */
-
-.interior {
-    position: fixed;
-    inset: 0;
+    border-radius: 50%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    text-align: center;
-
-    color: #eee;
-
     background:
         radial-gradient(
-            circle at center,
-            rgba(35, 48, 78, 0.35),
-            transparent 60%
-        ),
-        #050914;
+            circle at 35% 30%,
+            #f0f1f2,
+            #9ea3aa 35%,
+            #555b64 65%,
+            #c9ccd0 100%
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.55),
+        inset 0 1px 2px rgba(255,255,255,.9),
+        inset 0 -3px 6px rgba(0,0,0,.35);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* aro interno */
+
+.lacre::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(45,48,53,.55);
+}
+
+
+/* =====================================================
+   GV
+===================================================== */
+
+.gv {
+    position: relative;
+
+    width: 67px;
+    height: 67px;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* G */
+
+.gv .g {
+    position: absolute;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 58px;
+
+    font-weight: bold;
+
+    color: #292d33;
+
+    transform:
+        translateX(-9px);
+}
+
+
+/* V */
+
+.gv .v {
+    position: absolute;
+
+    font-family:
+        "Times New Roman",
+        Georgia,
+        serif;
+
+    font-size: 58px;
+
+    font-weight: bold;
+
+    color: #292d33;
+
+    transform:
+        translateX(8px)
+        translateY(4px);
+}
+
+
+/* =====================================================
+   HOVER / TOQUE
+===================================================== */
+
+.lacre:hover {
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.04);
+
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.6),
+        inset 0 1px 2px rgba(255,255,255,.95),
+        inset 0 -3px 6px rgba(0,0,0,.4);
+}
+
+
+/* =====================================================
+   ENVELOPE ABERTO
+===================================================== */
+
+.envelope.aberto .aba {
+
+    transform:
+        rotateX(-170deg);
+}
+
+
+/* lacre desaparece quando abre */
+
+.envelope.aberto .lacre {
+
+    transform:
+        translate(-50%, -50%)
+        scale(.75);
 
     opacity: 0;
 
-    transform: scale(1.05);
-
-    transition:
-        opacity 1.3s ease,
-        transform 1.3s ease;
+    pointer-events: none;
 }
 
-.interior.visivel {
-    opacity: 1;
-    transform: scale(1);
+
+/* convite sobe e aparece */
+
+.envelope.aberto + .convite {
+
+    transform:
+        translateY(-4%);
 }
 
-.interior h1 {
-    font-size: 34px;
-    font-weight: normal;
-    letter-spacing: 5px;
-}
 
-.interior p {
-    margin-top: 15px;
-    font-size: 13px;
-    letter-spacing: 3px;
-    opacity: 0.65;
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 420px) {
+
+    .lacre {
+        width: 96px;
+        height: 96px;
+    }
+
+    .gv .g,
+    .gv .v {
+        font-size: 50px;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- CAPA -->
 
-<div class="capa" id="capa">
+<div class="cena">
 
-    <img
-        class="logo"
-        src="./file_00000000dc38820e926687e1df4ed0a4.png"
-        alt="Logo GV"
-        id="logo"
+    <div class="sombra"></div>
+
+
+    <!-- ENVELOPE -->
+
+    <div
+        class="envelope"
+        id="envelope"
     >
 
-</div>
+        <div class="corpo">
+
+            <div class="borda"></div>
+
+        </div>
 
 
-<!-- INTERIOR -->
+        <div class="lado-esquerdo"></div>
 
-<div class="interior" id="interior">
+        <div class="lado-direito"></div>
 
-    <div>
 
-        <h1>Gabriella Victória</h1>
+        <!-- ABA -->
 
-        <p>Uma noite para celebrar</p>
+        <div class="aba"></div>
+
+
+        <!-- LACRE GV -->
+
+        <div
+            class="lacre"
+            id="lacre"
+            role="button"
+            tabindex="0"
+            aria-label="Abrir convite"
+        >
+
+            <div class="gv">
+
+                <span class="g">G</span>
+
+                <span class="v">V</span>
+
+            </div>
+
+        </div>
 
     </div>
+
+
+    <!-- CONVITE INTERNO -->
+
+    <div class="convite">
+
+        <h1>Gabriella</h1>
+
+        <p>
+            UMA NOITE PARA CELEBRAR<br>
+            UMA HISTÓRIA PARA GUARDAR
+        </p>
+
+    </div>
+
 
 </div>
 
 
 <script>
 
-const logo = document.getElementById("logo");
+const envelope =
+    document.getElementById("envelope");
 
-const capa = document.getElementById("capa");
+const lacre =
+    document.getElementById("lacre");
 
-const interior = document.getElementById("interior");
+
+function abrirConvite() {
+
+    envelope.classList.add("aberto");
+
+}
 
 
-logo.addEventListener("click", function() {
+lacre.addEventListener(
+    "click",
+    abrirConvite
+);
 
-    capa.classList.add("aberta");
 
-    setTimeout(function() {
+lacre.addEventListener(
+    "keydown",
+    function(event) {
 
-        interior.classList.add("visivel");
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
 
-    }, 600);
+            event.preventDefault();
 
-});
+            abrirConvite();
+
+        }
+
+    }
+);
 
 </script>
+
 
 </body>
 </html>
