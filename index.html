@@ -3,77 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gabriella Victória</title>
 
 <style>
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
 }
 
 body {
-    background:
-        radial-gradient(circle at 50% 45%, rgba(255,255,255,0.055), transparent 32%),
-        linear-gradient(135deg, #050914 0%, #0a1020 48%, #03050b 100%);
-    font-family: Georgia, "Times New Roman", serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #050914;
+    font-family: Georgia, serif;
 }
 
-/* Capa */
-.cover {
+/* CAPA */
+
+.capa {
     position: fixed;
     inset: 0;
     z-index: 10;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1800px;
+
     background:
-        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.045), transparent 38%),
-        linear-gradient(135deg, #070b16, #0b1325 50%, #04070e);
-    transition: opacity 1s ease;
-}
-
-/* Textura discreta */
-.cover::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    opacity: 0.18;
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            rgba(255,255,255,0.018) 0px,
-            rgba(255,255,255,0.018) 1px,
-            transparent 1px,
-            transparent 4px
+        radial-gradient(
+            circle at center,
+            rgba(35, 48, 78, 0.45),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #030610,
+            #0b1428,
+            #03050c
         );
-    pointer-events: none;
+
+    perspective: 1800px;
+
+    transition:
+        transform 1.4s ease,
+        opacity 1.2s ease;
 }
 
-/* Área da logo */
-.logo-button {
-    position: relative;
-    z-index: 3;
-    width: min(58vw, 260px);
-    aspect-ratio: 1;
-    border: none;
-    background: transparent;
+/* LOGO */
+
+.logo {
+    width: min(70vw, 330px);
+
     cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+
+    filter:
+        drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+}
+
+.logo:active {
+    transform: scale(0.95);
+}
+
+/* ABERTURA */
+
+.capa.aberta {
+    transform:
+        perspective(1800px)
+        rotateY(-100deg);
+
+    transform-origin: left center;
+
+    opacity: 0;
+}
+
+/* PARTE DE DENTRO */
+
+.interior {
+    position: fixed;
+    inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.5s ease;
-    -webkit-tap-highlight-color: transparent;
+
+    text-align: center;
+
+    color: #eee;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(35, 48, 78, 0.35),
+            transparent 60%
+        ),
+        #050914;
+
+    opacity: 0;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 1.3s ease,
+        transform 1.3s ease;
 }
 
-.logo-button::before {
-    content: "";
-    position: absolute;
-    inset: -18
+.interior.visivel {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.interior h1 {
+    font-size: 34px;
+    font-weight: normal;
+    letter-spacing: 5px;
+}
+
+.interior p {
+    margin-top: 15px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    opacity: 0.65;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CAPA -->
+
+<div class="capa" id="capa">
+
+    <img
+        class="logo"
+        src="./file_00000000dc38820e926687e1df4ed0a4.png"
+        alt="Logo GV"
+        id="logo"
+    >
+
+</div>
+
+
+<!-- INTERIOR -->
+
+<div class="interior" id="interior">
+
+    <div>
+
+        <h1>Gabriella Victória</h1>
+
+        <p>Uma noite para celebrar</p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const logo = document.getElementById("logo");
+
+const capa = document.getElementById("capa");
+
+const interior = document.getElementById("interior");
+
+
+logo.addEventListener("click", function() {
+
+    capa.classList.add("aberta");
+
+    setTimeout(function() {
+
+        interior.classList.add("visivel");
+
+    }, 600);
+
+});
+
+</script>
+
+</body>
+</html>
