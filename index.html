@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Gabriella Victória • 15 Anos</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #07111f;
+      color: #f5f2eb;
+      font-family: Georgia, "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .convite {
+      width: 100%;
+      max-width: 500px;
+      min-height: 100vh;
+      padding: 40px 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .detalhe {
+      font-size: 13px;
+      letter-spacing: 6px;
+      margin-bottom: 35px;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: clamp(42px, 12vw, 68px);
+      font-weight: normal;
+      letter-spacing: 4px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .quinze {
+      font-size: 20px;
+      letter-spacing: 9px;
+      margin-bottom: 45px;
+    }
+
+    .frase {
+      max-width: 300px;
+      font-size: 18px;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 45px;
+    }
+
+    .data {
+      font-size: 15px;
+      letter-spacing: 4px;
+      line-height: 2;
+      margin-bottom: 45px;
+    }
+
+    .abrir {
+      background: transparent;
+      border: 1px solid #c7c2b7;
+      color: #f5f2eb;
+      padding: 15px 32px;
+      font-family: inherit;
+      font-size: 12px;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .abrir:hover {
+      background: #f5f2eb;
+      color: #07111f;
+    }
+
+    .brilho {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background: white;
+      box-shadow:
+        80px -220px 0 0 white,
+        -100px -150px 0 0 #c7c2b7,
+        130px 180px 0 0 white,
+        -140px 230px 0 0 #c7c2b7,
+        170px -50px 0 0 #c7c2b7,
+        -180px 40px 0 0 white;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="convite">
+
+    <div class="brilho"></div>
+
+    <div class="detalhe">✦ UMA NOITE ESPECIAL ✦</div>
+
+    <h1>Gabriella</h1>
+
+    <div class="quinze">15 ANOS</div>
+
+    <p class="frase">
+      Porque alguns momentos<br>
+      merecem ser eternizados.
+    </p>
+
+    <div class="data">
+      26 • 12 • 2026<br>
+      19H
+    </div>
+
+    <button class="abrir">
+      ABRIR CONVITE ✦
+    </button>
+
+  </main>
+
+</body>
+</html>
