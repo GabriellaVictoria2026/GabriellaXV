@@ -3,224 +3,514 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Gabriella Victória</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,body{
-  width:100%;
-  min-height:100%;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
 }
 
-body{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 38%, #1b2a43 0%, #101b2d 38%, #050a13 78%);
-  font-family:Georgia, "Times New Roman", serif;
-}
-
-/* leve textura do fundo */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.18;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0px,
-      transparent 3px,
-      rgba(255,255,255,.025) 4px
-    );
-}
-
-.cena{
-  position:relative;
-  width:min(82vw,390px);
-  height:min(123vw,585px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/* sombra do envelope */
-.sombra{
-  position:absolute;
-  width:78%;
-  height:35px;
-  bottom:5%;
-  border-radius:50%;
-  background:rgba(0,0,0,.7);
-  filter:blur(18px);
-}
-
-/* ENVELOPE */
-.envelope{
-  position:relative;
-  width:100%;
-  height:100%;
-  border-radius:4px;
-  overflow:visible;
-  filter:drop-shadow(0 25px 28px rgba(0,0,0,.55));
-}
-
-/* corpo principal */
-.corpo{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  border-radius:4px;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,.018) 0px,
-      rgba(255,255,255,.018) 1px,
-      transparent 1px,
-      transparent 5px
-    ),
-    linear-gradient(
-      145deg,
-      #17263e 0%,
-      #0d192c 48%,
-      #08101e 100%
-    );
-  border:1px solid rgba(205,210,220,.65);
-}
-
-/* moldura interna */
-.corpo::after{
-  content:"";
-  position:absolute;
-  inset:14px;
-  border:1px solid rgba(210,215,224,.28);
-  pointer-events:none;
-}
-
-/* dobra inferior esquerda */
-.esquerda{
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:58%;
-  background:linear-gradient(
-    145deg,
-    #1a2b44 0%,
-    #0a1424 72%
-  );
-  clip-path:polygon(0 0, 50% 100%, 0 100%);
-  border-top:1px solid rgba(210,215,224,.35);
-  z-index:3;
-}
-
-/* dobra inferior direita */
-.direita{
-  position:absolute;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:58%;
-  background:linear-gradient(
-    215deg,
-    #1a2b44 0%,
-    #0a1424 72%
-  );
-  clip-path:polygon(100% 0, 50% 100%, 100% 100%);
-  border-top:1px solid rgba(210,215,224,.35);
-  z-index:3;
-}
-
-/* linha central inferior */
-.base{
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:100%;
-  height:50%;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(20,34,54,.2),
-      #091321
-    );
-  clip-path:polygon(0 100%, 50% 0, 100% 100%);
-  border-top:1px solid rgba(210,215,224,.3);
-  z-index:4;
-}
-
-/* ABA SUPERIOR */
-.aba{
-  position:absolute;
-  left:0;
-  top:0;
-  width:100%;
-  height:51%;
-  background:
-    linear-gradient(
-      180deg,
-      #1d2d47 0%,
-      #14233a 45%,
-      #0a1425 100%
-    );
-  clip-path:polygon(0 0, 100% 0, 50% 100%);
-  z-index:10;
-  transform-origin:50% 0%;
-  transition:
-    transform 1.25s cubic-bezier(.2,.75,.2,1),
-    opacity .3s ease;
-  border-top:1px solid rgba(220,224,231,.75);
-}
-
-/* linha metálica da aba */
-.aba::after{
-  content:"";
-  position:absolute;
-  left:9%;
-  right:9%;
-  top:1px;
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(240,242,245,.8),
-    transparent
-  );
-}
-
-/* LACRE */
-.lacre{
-  position:absolute;
-  z-index:20;
-  left:50%;
-  top:50%;
-  width:104px;
-  height:104px;
-  transform:translate(-50%,-50%);
-  border-radius:50%;
-  cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
   background:
     radial-gradient(
-      circle at 30% 22%,
-      #ffffff 0%,
-      #e2e4e7 20%,
-      #aeb2b8 45%,
-      #676c74 68%,
-      #d8dade 100%
+      circle at 50% 42%,
+      #1b2b45 0%,
+      #101c2e 42%,
+      #050a12 100%
     );
 
-  border:1px solid #f
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* área do convite */
+.cena {
+  position: relative;
+
+  width: 320px;
+  height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* sombra */
+.sombra {
+  position: absolute;
+
+  width: 250px;
+  height: 30px;
+
+  bottom: 5px;
+  left: 35px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  filter: blur(12px);
+}
+
+/* envelope */
+.envelope {
+  position: relative;
+
+  width: 320px;
+  height: 480px;
+
+  z-index: 2;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 25px 45px rgba(0,0,0,.55),
+    0 5px 12px rgba(0,0,0,.4);
+}
+
+/* corpo do envelope */
+.corpo {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 320px;
+  height: 480px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1a2a43 0%,
+      #101d31 50%,
+      #08111f 100%
+    );
+
+  border: 1px solid rgba(220,225,232,.7);
+}
+
+/* moldura interna */
+.moldura {
+  position: absolute;
+
+  left: 14px;
+  top: 14px;
+
+  width: 292px;
+  height: 452px;
+
+  border: 1px solid rgba(215,220,228,.25);
+
+  pointer-events: none;
+}
+
+/* dobra esquerda */
+.dobra-esquerda {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 320px;
+  height: 285px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #1b2c46,
+      #0a1424
+    );
+
+  clip-path: polygon(
+    0 0,
+    50% 100%,
+    0 100%
+  );
+
+  border-top: 1px solid rgba(220,225,232,.35);
+
+  z-index: 3;
+}
+
+/* dobra direita */
+.dobra-direita {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 320px;
+  height: 285px;
+
+  background:
+    linear-gradient(
+      215deg,
+      #1b2c46,
+      #0a1424
+    );
+
+  clip-path: polygon(
+    100% 0,
+    50% 100%,
+    100% 100%
+  );
+
+  border-top: 1px solid rgba(220,225,232,.35);
+
+  z-index: 3;
+}
+
+/* dobra inferior */
+.dobra-inferior {
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 320px;
+  height: 240px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #14243a,
+      #091321
+    );
+
+  clip-path: polygon(
+    0 100%,
+    50% 0,
+    100% 100%
+  );
+
+  border-top: 1px solid rgba(220,225,232,.28);
+
+  z-index: 4;
+}
+
+/* ABA SUPERIOR */
+.aba {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 320px;
+  height: 250px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #20324e 0%,
+      #162640 45%,
+      #0b1627 100%
+    );
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 100%
+  );
+
+  border-top: 1px solid rgba(235,238,242,.8);
+
+  z-index: 10;
+
+  transform-origin: 50% 0%;
+
+  transition:
+    transform 1.3s cubic-bezier(.2,.75,.2,1),
+    opacity .8s ease;
+}
+
+/* detalhe metálico no topo */
+.linha-prata {
+  position: absolute;
+
+  left: 30px;
+  top: 1px;
+
+  width: 260px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.8),
+      transparent
+    );
+
+  z-index: 11;
+}
+
+/* LACRE */
+.lacre {
+  position: absolute;
+
+  left: 160px;
+  top: 240px;
+
+  width: 105px;
+  height: 105px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  z-index: 20;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #ffffff 0%,
+      #e4e6e9 20%,
+      #b7bbc0 42%,
+      #777c84 68%,
+      #dfe1e4 100%
+    );
+
+  border: 1px solid #f5f5f5;
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.6),
+    inset 0 2px 4px rgba(255,255,255,.95),
+    inset 0 -5px 8px rgba(0,0,0,.35);
+
+  transition:
+    transform .3s ease,
+    opacity .6s ease;
+}
+
+/* círculo interno do lacre */
+.lacre::before {
+  content: "";
+
+  position: absolute;
+
+  left: 8px;
+  top: 8px;
+
+  width: 87px;
+  height: 87px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(45,48,53,.65);
+}
+
+/* segundo detalhe */
+.lacre::after {
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+  top: 13px;
+
+  width: 77px;
+  height: 77px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255,255,255,.45);
+}
+
+/* monograma GV */
+.gv {
+  position: relative;
+
+  width: 70px;
+  height: 70px;
+
+  z-index: 2;
+}
+
+.gv-g,
+.gv-v {
+  position: absolute;
+
+  font-family:
+    "Times New Roman",
+    Georgia,
+    serif;
+
+  font-size: 57px;
+
+  line-height: 1;
+
+  font-weight: bold;
+
+  color: #272b31;
+
+  text-shadow:
+    0 1px 0 white,
+    0 -1px 0 rgba(0,0,0,.15);
+}
+
+.gv-g {
+  left: 3px;
+  top: 4px;
+}
+
+.gv-v {
+  left: 27px;
+  top: 8px;
+}
+
+/* efeito ao tocar */
+.lacre:active {
+  transform:
+    translate(-50%, -50%)
+    scale(.94);
+}
+
+/* envelope aberto */
+.envelope.aberto .aba {
+  transform:
+    rotateX(-160deg);
+
+  opacity: .15;
+}
+
+.envelope.aberto .lacre {
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    scale(.65);
+
+  pointer-events: none;
+}
+
+/* celulares menores */
+@media (max-width: 350px) {
+
+  .cena {
+    transform: scale(.88);
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cena">
+
+  <div class="sombra"></div>
+
+  <div class="envelope" id="envelope">
+
+    <!-- corpo -->
+    <div class="corpo">
+
+      <div class="moldura"></div>
+
+      <div class="dobra-esquerda"></div>
+
+      <div class="dobra-direita"></div>
+
+      <div class="dobra-inferior"></div>
+
+    </div>
+
+    <!-- aba superior -->
+    <div class="aba">
+
+      <div class="linha-prata"></div>
+
+    </div>
+
+    <!-- lacre -->
+    <div
+      class="lacre"
+      id="lacre"
+      role="button"
+      tabindex="0"
+      aria-label="Abrir convite"
+    >
+
+      <div class="gv">
+
+        <span class="gv-g">G</span>
+
+        <span class="gv-v">V</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const envelope =
+  document.getElementById("envelope");
+
+const lacre =
+  document.getElementById("lacre");
+
+
+function abrirEnvelope() {
+
+  envelope.classList.add("aberto");
+
+}
+
+
+lacre.addEventListener(
+  "click",
+  abrirEnvelope
+);
+
+
+lacre.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
+
+      event.preventDefault();
+
+      abrirEnvelope();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
